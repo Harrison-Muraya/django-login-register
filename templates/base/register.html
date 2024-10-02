@@ -1,0 +1,72 @@
+{% block content %} {% if messages %}
+<div id="flash-messages">
+  {% for message in messages %}
+  <div>{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="container">
+  <div class="form-container">
+    <h2>Register</h2>
+
+    <form method="POST" action="">
+      {% csrf_token %}
+
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" />
+      </div>
+
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" />
+      </div>
+
+      <!-- Last Name -->
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" />
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" />
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" />
+      </div>
+
+      <!-- Remember Me for 30 Days -->
+      <div class="form-group">
+        <input type="checkbox" id="remember_me" name="remember_me" />
+        <label for="remember_me">Remember me for 30 days</label>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit">Register</button>
+      </div>
+
+      <!-- Login & Cancel Links -->
+      <div class="links">
+        <a href="{% url 'home' %}">Already have an account? Log in</a>
+        <a href="#">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
