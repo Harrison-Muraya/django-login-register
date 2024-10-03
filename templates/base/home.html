@@ -1,4 +1,11 @@
-<h2>WELCOME YOU ARE NOT SIGNED IN</h2>
+<h2>
+  WELCOME{% if user.is_authenticated %} {{request.user|upper}} {% else %} YOU
+  ARE NOT SIGNED IN {% endif %}
+</h2>
 
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}">logout</a>
+{% else %}
 <a href="{% url 'register' %}">Register</a>
-<a href="#">login</a>
+<a href="{% url 'login' %}">login</a>
+{% endif %}
